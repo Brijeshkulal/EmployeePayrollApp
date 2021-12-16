@@ -28,9 +28,9 @@ public class EmployeePayRollController {
 	}
     
 	@GetMapping("/get/{empId}")
-	public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("employeeId") int employeeId) {
+	public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("empId") int employeeId) {
 		EmployeePayrollData employeePayrollData = null;
-		employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDto("Pankaj", 30000));
+		employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDto("Brijesh", 60000));
 		ResponseDto responseDTO = new ResponseDto("Get Call  For ID Successfull", employeePayrollData);
 		return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
 	}
