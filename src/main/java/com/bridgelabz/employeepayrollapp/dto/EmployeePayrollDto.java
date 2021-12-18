@@ -1,18 +1,14 @@
 package com.bridgelabz.employeepayrollapp.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@ToString
 public class EmployeePayrollDto {
 	public String name;
 	public long salary;
-	
-	@Override
-	public String toString() {
-		return "EmployeePayrollDto [name=" + name + ", salary=" + salary + "]";
-	}
-
-	public EmployeePayrollDto(String name, long salary) {
-		super();
-		this.name = name;
-		this.salary = salary;
-	}
 
 }
