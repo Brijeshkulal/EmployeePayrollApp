@@ -1,8 +1,13 @@
 package com.bridgelabz.employeepayrollapp.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +24,15 @@ public class EmployeePayrollDto {
 	
 	@Min(value = 500, message = "Min Wage should be more than 500")
 	public long salary;
+	
+	public String gender;
+    
+    public String startDate;
+
+    public String note;
+
+    public String profilePic;
+
+    public List<String> departments;
 
 }
