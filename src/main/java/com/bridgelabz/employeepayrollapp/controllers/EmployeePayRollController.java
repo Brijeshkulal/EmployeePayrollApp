@@ -66,4 +66,11 @@ public class EmployeePayRollController {
 		ResponseDto responseDTO = new ResponseDto("Deleted Sucessfully", "Deleted Id: " + employeeId);
 		return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
 	}
+	
+	@GetMapping("/department/{department}")
+	public ResponseEntity<ResponseDto> getEmployeeByDepartment(@PathVariable String department) {
+		List<EmployeePayrollData> employeeList = employeePayrollService.getEmployeesByDepartment(department);
+		ResponseDto response = new ResponseDto("success", employeeList);
+		return new ResponseEntity<ResponseDto>(response, HttpStatus.OK);
+	}
 }
