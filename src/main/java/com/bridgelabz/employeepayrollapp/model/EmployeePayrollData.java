@@ -46,17 +46,20 @@ public class EmployeePayrollData {
     @Column(name = "departments")
     private List<String> departments;
     
-	public EmployeePayrollData() {
-		
-	}
+    public EmployeePayrollData() {
+    }
+    public EmployeePayrollData(EmployeePayrollDto employeePayrollDto){
+        this.updateEmployeePayrollData(employeePayrollDto);
+    }
 
-	public EmployeePayrollData(EmployeePayrollDto employeePayrollDto) {
-		this.name = employeePayrollDto.name;
-		this.salary = employeePayrollDto.salary;
-		this.gender=employeePayrollDto.gender;
-	    this.startDate=employeePayrollDto.startDate;
-	    this.note=employeePayrollDto.note;
-	    this.profilePic=employeePayrollDto.profilePic;
-	    this.departments=employeePayrollDto.departments;
+    public void updateEmployeePayrollData( EmployeePayrollDto employeePayrollDto) {
+        this.name = employeePayrollDto.name;
+        this.salary = employeePayrollDto.salary;
+        this.gender = employeePayrollDto.gender;
+        this.note = employeePayrollDto.note;
+        this.startDate = employeePayrollDto.startDate;
+        this.profilePic = employeePayrollDto.profilePic;
+        this.departments = employeePayrollDto.departments;
+
     }
 }
