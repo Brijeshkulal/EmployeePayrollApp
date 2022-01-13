@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,17 +24,19 @@ import com.bridgelabz.employeepayrollapp.services.IEmployeePayrollService;
 
 @RestController
 @RequestMapping("/employeepayrollservice")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EmployeePayRollController {
 	
 	@Autowired
 	private IEmployeePayrollService employeePayrollService;
 	
-	@RequestMapping(value={"","/","/get"})
-	public ResponseEntity<ResponseDto> getEmployeePayrollData() {
+	@GetMapping(value={"","/","/get"},produces = "application/json")
+	public ResponseDto getEmployeePayrollData() {
 		List<EmployeePayrollData> empDataList = null;
 		empDataList = employeePayrollService.getEmployeePayrollData();
 		ResponseDto responseDTO = new ResponseDto("Get Call Success", empDataList);
-		return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
+//		return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
+		return responseDTO;
 	}
     
 	@GetMapping("/get/{empId}")

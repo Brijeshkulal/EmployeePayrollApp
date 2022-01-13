@@ -2,6 +2,7 @@ package com.bridgelabz.employeepayrollapp.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -34,7 +35,7 @@ public class EmployeePayrollData {
 	@Column(name = "gender")
 	private String gender;
 	@Column(name = "start_date")
-    private LocalDate startDate;
+    private String startDate;
     @Column(name = "note")
     private String note;
     @Column(name = "profile_pic")
@@ -48,6 +49,7 @@ public class EmployeePayrollData {
     
     public EmployeePayrollData() {
     }
+    
     public EmployeePayrollData(EmployeePayrollDto employeePayrollDto){
         this.updateEmployeePayrollData(employeePayrollDto);
     }
@@ -62,4 +64,27 @@ public class EmployeePayrollData {
         this.departments = employeePayrollDto.departments;
 
     }
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmployeePayrollData other = (EmployeePayrollData) obj;
+		return Objects.equals(departments, other.departments) && employeeId == other.employeeId
+				&& Objects.equals(gender, other.gender) && Objects.equals(name, other.name)
+				&& Objects.equals(note, other.note) && Objects.equals(profilePic, other.profilePic)
+				&& salary == other.salary && Objects.equals(startDate, other.startDate);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(departments, employeeId, gender, name, note, profilePic, salary, startDate);
+	}
+
+
+
 }

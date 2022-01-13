@@ -2,6 +2,7 @@ package com.bridgelabz.employeepayrollapp.dto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -31,10 +32,10 @@ public class EmployeePayrollDto {
 	@Pattern(regexp = "male|female", message ="Gender needs to be male or female")
 	public String gender;
     
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	@NotNull(message = "Start Date should Not be empty")
-	@PastOrPresent (message = "Start Date should be past or today's date")
-	public LocalDate startDate;
+//	@JsonFormat(pattern = "yyyy-MM-dd")
+//	@NotNull(message = "Start Date should Not be empty")
+//	@PastOrPresent (message = "Start Date should be past or today's date")
+	public String startDate;
     
     @NotBlank(message = "Note cannot be Empty")
     public String note;
@@ -45,4 +46,5 @@ public class EmployeePayrollDto {
     @NotNull(message = "Departments cannot not be empty")
     public List<String> departments;
 
+	
 }

@@ -11,4 +11,6 @@ public interface EmployeePayrollRepository extends JpaRepository<EmployeePayroll
 	@Query(value = "select * from employee_payroll,employee_department where employee_id=id and departments=:department", nativeQuery = true)
     List<EmployeePayrollData> findEmployeeByDepartment(String department);
 
+
+
 }
