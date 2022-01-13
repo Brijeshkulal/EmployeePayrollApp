@@ -1,7 +1,6 @@
 package com.bridgelabz.employeepayrollapp.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,14 +25,6 @@ public class EmployeePayrollService implements IEmployeePayrollService{
 		return employeeRepository.findAll();
 	}
 
-//	@Override
-//	public EmployeePayrollData getEmployeePayrollDataById(int employeeId) {
-//		Optional<EmployeePayrollData> empData = employeeRepository.findById(employeeId);//.orElseThrow(() -> new EmployeePayrollException("Employee Not Found"));
-//		if(empData.isPresent()) {
-//			empData.get();
-//		}
-//		return null;
-//	}
 	
 	@Override
 	public EmployeePayrollData getEmployeePayrollDataById(int employeeId) {
@@ -56,11 +47,6 @@ public class EmployeePayrollService implements IEmployeePayrollService{
 		return employeeRepository.save(employeePayrollData);
 	}
 
-//	@Override
-//	public void deleteEmployeePayrollData(int employeeId) {
-//		EmployeePayrollData employeePayrollData = this.getEmployeePayrollDataById(employeeId);
-//		employeeRepository.delete(employeePayrollData);
-//	}
 	
 	@Override
 	public String deleteEmployeePayrollData(int employeeId) {
